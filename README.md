@@ -26,4 +26,14 @@ Sovos File Upload Web Application
 * HTML / CSS
 * SLF4J (Logging)
 * Jetty 9 (servidor para desarrollo)
-* WAR (puede ser deployado en cualquier Application Server como Tomcat, JBoss,...)
+* WAR (puede ser deployado en cualquier Application Server como Tomcat, JBoss, ...)
+
+------------------------
+# Manual de Instalación
+
+1. Deployar el WAR generado *sovos-file-upload.war* en un servidor de aplicación (Tomcat, JBoss, ...)
+2. Agregar en JAVA_OPTS la variable de entorno *-Dupload.path=<temp_upload_dir>* para configuración del directório temporal de uploads
+  * Caso esa variable no sea definida, se ocupará automáticamente la variable de la JVM *java.io.tmpdir*
+3. La aplicación tendrá el contexto /sovos-file-upload/
+
+
