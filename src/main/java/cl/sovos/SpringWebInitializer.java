@@ -40,10 +40,10 @@ public class SpringWebInitializer implements WebApplicationInitializer {
         dispatcher.addMapping("/");
 
         LOGGER.info("Configurando local de los archivos cargados...");
-        File uploadDirectory = Utils.getUploadDirectory();
-        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory.getAbsolutePath());
+        String uploadDirectory = Utils.getUploadDirectory();
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory);
         dispatcher.setMultipartConfig(multipartConfigElement);
-        LOGGER.info("uploadDirectory=" + uploadDirectory.getAbsolutePath());
+        LOGGER.info("uploadDirectory=" + uploadDirectory);
 
         FilterRegistration.Dynamic characterEncodingFilter = servletContext.addFilter("characterEncodingFilter", characterEncodingFilter());
         characterEncodingFilter.setAsyncSupported(true);

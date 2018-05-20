@@ -54,8 +54,7 @@ public class FilesController {
     @PostMapping(WebPath.MVC_MAPPING_DOWNLOAD_FILE)
     public void downloadFile(@RequestParam final String downloadFile, final HttpServletResponse response) throws IOException {
         LOGGER.debug(String.format("Descargando archivo [%s]...", downloadFile));
-        String uploadDirectory = Utils.getUploadDirectory().getAbsolutePath() + File.separator;
-        File file = new File(uploadDirectory + downloadFile);
+        File file = new File(Utils.getUploadDirectory() + downloadFile);
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
 
         try (FileInputStream fis = new FileInputStream(file)) {

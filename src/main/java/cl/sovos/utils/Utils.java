@@ -4,6 +4,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,16 +14,15 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 /**
  * Created by marcosene on 19/05/2018.
  */
 public class Utils {
 
-    private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Utils.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
 
-    public static File getUploadDirectory() {
+    public static String getUploadDirectory() {
         String uploadPath = System.getProperty("upload.path");
         if (StringUtils.isBlank(uploadPath)) {
             uploadPath = System.getProperty("java.io.tmpdir");
@@ -32,7 +32,7 @@ public class Utils {
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
         }
-        return uploadDir;
+        return uploadDir.getAbsolutePath() + File.separator;
     }
 
     public static Map<String, String> splitFile(final MultipartFile file) throws IOException {
@@ -41,8 +41,6 @@ public class Utils {
         int fileMinSize = fileBytes.length / filesCounter;
 
         Map<String, String> fileMap = new LinkedHashMap<>();
-
-        String uploadDirectory = Utils.getUploadDirectory().getAbsolutePath() + File.separator;
 
         // Crea un directorio cuyo nombre sea unico por transaccion
         // garantizando la unicidad en un entorno multithreads
@@ -60,7 +58,7 @@ public class Utils {
                     fileIndex);
             LOGGER.debug(String.format("Creando segmento de archivo [%s]", newFilename));
 
-            File newFile = new File(uploadDirectory + newFilename);
+            File newFile = new File(Utils.getUploadDirectory() + newFilename);
             if (!newFile.exists()) {
                 newFile.getParentFile().mkdirs();
                 newFile.createNewFile();
