@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sovos File Upload</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shorcut icon" th:href="@{/static/img/favicon.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/estilos.css}">
+</head>
+
+<body>
+
+<div class="select-file">
+    <img class="logo" th:src="@{/static/img/logo.svg}" alt="SOVOS"/>
+
+    <h4>Ingrese abajo un archivo para dividirlo:</h4>
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="uploadFile">
+            <input type="file" name="file"/>
+            <input type="submit" value="Upload" class="btn btn-upload"/>
+        </form>
+    </div>
+</div>
+
+<div class="select-file result" th:if="${message != null || fileMap != null}">
+    <th:block th:if="${message != null}">
+        <h4 th:class="${error != null ? 'message error': 'message'}" th:text="${message}"/>
+    </th:block>
+
+    <th:block th:if="${fileMap != null}">
+        <form method="GET" action="home">
+            <input type="submit" value="Volver" class="btn"/>
+        </form>
+
+        <table th:if="${fileMap}">
+            <th:block th:each="entry : ${fileMap.entrySet()}">
+                <tr>
+                    <td th:text="${entry.getKey()}"/>
+                    </td>
+                    <td>
+                        <form method="POST" enctype="multipart/form-data" action="downloadFile">
+                            <input type="hidden" name="downloadFile" th:value="${entry.getValue()}"/>
+                            <input type="submit" value="Download" class="btn btn-download"/>
+                        </form>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+    </th:block>
+</div>
+
+</body>
+</html>

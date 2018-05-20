@@ -1,0 +1,94 @@
+
+body {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    color: #666666;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 15px 0px;
+    letter-spacing: 1px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 30px;
+}
+
+tr {
+    vertical-align: baseline;
+}
+
+td {
+    padding: 5px 15px;
+    font-weight: 400;
+    font-size: 13px;
+    word-wrap: break-word;
+}
+
+.logo {
+    width: 30% !important;
+}
+
+.select-file {
+    border-radius: 15px;
+    border: 2px solid #cccccc;
+    margin: 35px 25%;
+    padding: 30px 20px;
+    line-height: 24px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.result {
+    background-color: #eef5f5;
+    padding-top: 15px !important;
+    padding-bottom: 5px !important;
+}
+
+.btn {
+    color: #FFFFFF;
+    margin: 5px 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    letter-spacing: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px;
+    background-color: #996699;
+}
+
+.btn-upload {
+    background-color: #006699;
+}
+
+.btn-download {
+    background-color: #3399cc;
+}
+
+.message {
+    color: #006699;
+    padding: 0px 10px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width:620px) {
+    .select-file {
+        margin: 25px 5%;
+        padding: 20px 0px 5px;
+    }
+
+    td {
+        padding: 5px 10px;
+        font-weight: 400;
+        font-size: 13px;
+    }
+}
