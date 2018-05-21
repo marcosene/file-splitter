@@ -1,7 +1,11 @@
-# sovos-file-upload
-Sovos File Upload Web Application
-
+# Sovos File Upload Web Application
 *Sistema Web para carga y split de un archivo cualquier (independiente de su formato) disponibilizando sus segmentos para download*
+
+# Screenshots
+* Página para cargar el archivo:
+![Upload](https://github.com/marcosene/sovos-file-upload/blob/master/screenshots/upload.png)
+* Página para descargar los archivos segmentados:
+![Download](https://github.com/marcosene/sovos-file-upload/blob/master/screenshots/download.png)
 
 # Características:
 * El servidor divide los bytes del archivo cargado en N segmentos
