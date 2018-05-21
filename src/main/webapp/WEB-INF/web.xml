@@ -3,5 +3,5 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-    <display-name>Sovos File Upload Web Application</display-name>
+    <display-name>File Splitter Web Application</display-name>
 </web-app>

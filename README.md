@@ -1,7 +1,11 @@
-# sovos-file-upload
-Sovos File Upload Web Application
-
+# File Splitter Web Application
 *Sistema Web para carga y split de un archivo cualquier (independiente de su formato) disponibilizando sus segmentos para download*
+
+# Screenshots
+* Página para cargar el archivo:
+![Upload](https://github.com/marcosene/sovos-file-upload/blob/master/screenshots/upload.png)
+* Página para descargar los archivos segmentados:
+![Download](https://github.com/marcosene/sovos-file-upload/blob/master/screenshots/download.png)
 
 # Características:
 * El servidor divide los bytes del archivo cargado en N segmentos
@@ -31,9 +35,9 @@ Sovos File Upload Web Application
 ------------------------
 # Manual de Instalación
 
-1. Deployar el WAR generado *sovos-file-upload.war* en un servidor de aplicación (Tomcat, JBoss, ...)
+1. Deployar el WAR generado *file-splitter.war* en un servidor de aplicación (Tomcat, JBoss, ...)
 2. Agregar en JAVA_OPTS la variable de entorno *-Dupload.path=<temp_upload_dir>* para configuración del directório temporal de uploads
   * Caso esa variable no sea definida, se ocupará automáticamente la variable de la JVM *java.io.tmpdir*
-3. La aplicación tendrá el contexto /sovos-file-upload/
+3. La aplicación tendrá el contexto /file-splitter/
 
 

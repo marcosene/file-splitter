@@ -13,7 +13,7 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
-    <logger name="cl.sovos" level="debug" additivity="false">
+    <logger name="cl.system" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 
