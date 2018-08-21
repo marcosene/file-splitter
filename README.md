@@ -1,7 +1,6 @@
 # File Splitter Web Application
-*Sistema Web para carga y split de un archivo cualquier (independiente de su formato) disponibilizando sus segmentos para download*
+*Sistema Web responsivo para carga y split de un archivo cualquier (independiente de su formato) disponibilizando sus segmentos para download*
 
-# Screenshots
 * Página para cargar el archivo:
 ![Upload](https://github.com/marcosene/sovos-file-upload/blob/master/screenshots/upload.png)
 * Página para descargar los archivos segmentados:
@@ -23,11 +22,13 @@
 * Los archivos son persistidos en un directório temporal, que puede ser definido según una nueva variable de entorno *upload.path*.
   * Caso esa variable no sea definida, se ocupará automáticamente la variable de la JVM *java.io.tmpdir*
 
+* Las páginas son responsivas, es decir, se adaptan al dispositivo, sea Desktop o Mobile
+
 # Tecnologías utilizadas:
 * Java 7
 * Spring 4 / Spring Web-MVC
 * Thymeleaf 3 / Thymeleaf-Spring
-* HTML / CSS
+* HTML / CSS (Responsivo)
 * SLF4J (Logging)
 * Jetty 9 (servidor para desarrollo)
 * WAR (puede ser deployado en cualquier Application Server como Tomcat, JBoss, ...)
@@ -35,8 +36,8 @@
 ------------------------
 # Manual de Instalación
 
-1. Deployar el WAR generado *file-splitter.war* en un servidor de aplicación (Tomcat, JBoss, ...)
-2. Agregar en JAVA_OPTS la variable de entorno *-Dupload.path=<temp_upload_dir>* para configuración del directório temporal de uploads
+1. Deployar el WAR generado en [*/bin/file-splitter.war*](https://github.com/marcosene/sovos-file-upload/blob/master/bin/file-splitter.war) en un servidor de aplicación (Tomcat, JBoss, ...)
+2. Agregar en *JAVA_OPTS* la variable de entorno *-Dupload.path=<temp_upload_dir>* para configuración del directório temporal de uploads
   * Caso esa variable no sea definida, se ocupará automáticamente la variable de la JVM *java.io.tmpdir*
 3. La aplicación tendrá el contexto /file-splitter/
 
